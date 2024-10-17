@@ -1,0 +1,12 @@
+#rental {
+  position: relative;
+  top: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 0px 40px;
+  overflow: auto;
+  padding-bottom: 60px;
+}
+.product {
+  padding: 10px;
+}

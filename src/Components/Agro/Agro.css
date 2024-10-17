@@ -1,0 +1,13 @@
+#agro {
+  height: 100vh;
+  background-image: url(https://cdn.pixabay.com/photo/2024/02/23/21/25/landscape-8592826_960_720.jpg);
+  background-position: center;
+  background-size: cover;
+  top: 50px;
+  position: relative;
+}
+.center {
+  display: flex;
+  color: white;
+  justify-content: center;
+}

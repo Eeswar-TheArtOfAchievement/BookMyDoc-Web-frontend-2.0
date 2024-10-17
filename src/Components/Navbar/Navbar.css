@@ -1,0 +1,124 @@
+#navbar {
+  z-index: +1;
+  color: white;
+  background-color: #fff;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  padding: 0px 40px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+}
+.rounded{
+  height: 40px;
+  width: 80px;
+  border-radius: 20px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease; 
+}
+
+.rounded:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+}
+.notification-dot , .notification-dot1 {
+  position: absolute;
+  top: 3px;
+  right: 8px;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(26, 211, 239, 0.811); 
+  border-radius: 50%; 
+}
+.notification-dot1{
+  top: 28px; /* Adjust based on your design */
+  right: 130px; /* Adjust based on your design */
+}
+.icon{
+  color: var(--primary-color);
+}
+.side-menu {
+  position: fixed;
+  top: 46px;
+  right: 40px;
+  width: 250px;
+  height: min-content;
+  border-radius: 8px;
+  background: #444;
+  color: white;
+  padding : 10px 0px;
+  z-index: 1000;
+}
+
+.side-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+.side-menu ul li:hover {
+  background-color: #66c760;
+}
+.side-menu ul li {
+  padding: 10px 15px ;
+}
+.side-menu a {
+  color: white;
+  text-decoration: none;
+}
+
+.close-btn {
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+.navlogo {
+  color: #66c760;
+  gap: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.ulnav {
+  display: flex;
+  gap: 100px;
+  align-items: center;
+  list-style: none;
+}
+.li:hover {
+  text-decoration: underline;
+}
+.li {
+  color: rgb(203, 23, 23);
+}
+a {
+  text-decoration: none;
+}
+#footer {
+  box-sizing: border-box;
+  z-index: +2;
+  padding: 10px 0px;
+  background-color: rgb(235, 210, 177);
+  width: 100%;
+}
+.ulfooter {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+.infofooter {
+  display: flex;
+  justify-content: center;
+}
+.infofooterlogo {
+  padding: 10px 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3%;
+}
