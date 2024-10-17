@@ -1,7 +1,18 @@
 import React, { useState } from "react";
 import "./Register.css";
 import logo from "../../Assets/logo.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  Email,
+  EmailOutlined,
+  EmailRounded,
+  EmailSharp,
+  Password,
+  PasswordOutlined,
+  PasswordRounded,
+  PasswordSharp,
+  Person,
+} from "@mui/icons-material";
 
 const validateEmail = (email) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -29,7 +40,7 @@ const Register = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
   const [isOtpVisible, setIsOtpVisible] = useState(false);
-const [otp , setOtp]  = useState('')
+  const [otp, setOtp] = useState("");
 
   const handleSignUp = async () => {
     if (password !== confirmPassword) {
@@ -55,7 +66,7 @@ const [otp , setOtp]  = useState('')
       );
       return;
     }
-    setIsOtpVisible(true)
+    setIsOtpVisible(true);
     // Success
     setErrorMessage("");
     // try {
@@ -81,8 +92,8 @@ const [otp , setOtp]  = useState('')
 
   const handleVerifyOtp = async () => {
     if (!otp) {
-        alert('Error', 'Please enter the OTP');
-        return;
+      alert("Error", "Please enter the OTP");
+      return;
     }
     // Call your API to verify the OTP
     // try {
@@ -105,34 +116,68 @@ const [otp , setOtp]  = useState('')
     //     console.error(error);
     //     alert('Error', 'Something1 went wrong');
     // }
-
   };
-  const handlePop = async ()=>{
-    alert('otp resend successful');
-  }
+  const handlePop = async () => {
+    alert("otp resend successful");
+  };
   return (
     <div id="register">
+
       <div id="container">
+      
         <div id="formContainer">
           <div className="blueHead"></div>
-          <div className="container1">&nbsp;</div>
           <div className="logo">
-            <img className="imglogo" src={logo} alt="Logo" />&nbsp;&nbsp;
+            <Link to={'/'}>
+            <img className="imglogo" src={logo} alt="Logo" />
+            </Link>
+            &nbsp;&nbsp;
             <h1>BookMyDoc</h1>
           </div>
           {!isOtpVisible ? (
             <>
               <div className="heading">Let's Get Started</div>
-              <form id="form" onSubmit={(e) => { e.preventDefault(); handleSignUp(); }}>
-                {/* Registration Form Fields */}
-                <label htmlFor="name">Full Name</label>
-                <input type="text" onChange={(e) => setFullName(e.target.value)} placeholder="Full Name" required  className="inputs"/>
-                
-                <label htmlFor="email">Email</label>
-                <input type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email" required className="inputs"/>
-                
-                <label htmlFor="password">Password</label>
+              <form
+                id="form"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSignUp();
+                }}
+              >
+                {/* <label htmlFor="name">Full Name</label> */}
                 <div className="password-container">
+                  <div className="icon">
+                    <Person />
+                  </div>
+                  <input
+                    type="text"
+                    onChange={(e) => setFullName(e.target.value)}
+                    placeholder="Full Name"
+                    required
+                    className="inputs"
+                  />
+                  <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                </div>
+                {/* <label htmlFor="email">Email</label> */}
+                <div className="password-container">
+                  <div className="icon">
+                    <Email />
+                  </div>
+                  <input
+                    type="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email"
+                    required
+                    className="inputs"
+                  />
+                  <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                </div>
+                {/* <label htmlFor="password">Password</label> */}
+                <div className="password-container">
+                  <div className="icon">
+                    <Password />
+                  </div>
+                  <div className="password-container"></div>
                   <input
                     type={showPassword ? "text" : "password"}
                     onChange={(e) => setPassword(e.target.value)}
@@ -140,13 +185,21 @@ const [otp , setOtp]  = useState('')
                     required
                     className="inputs"
                   />
-                  <span className="eye-icon" onClick={() => setShowPassword(!showPassword)}>
+                  <span
+                    className="eye-icon"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
                     {showPassword ? "👁️" : "👁️‍🗨️"}
                   </span>
                 </div>
-  
-                <label htmlFor="confirmPassword">Confirm Password</label>
+
+                {/* <label htmlFor="confirmPassword">Confirm Password</label> */}
                 <div className="password-container">
+                  <div className="cloo">
+                    <div className="icon">
+                      <PasswordSharp />
+                    </div>
+                  </div>
                   <input
                     type={showConfirmPassword ? "text" : "password"}
                     onChange={(e) => setConfirmPassword(e.target.value)}
@@ -154,28 +207,57 @@ const [otp , setOtp]  = useState('')
                     required
                     className="inputs"
                   />
-                  <span className="eye-icon" onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
+                  <span
+                    className="eye-icon"
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  >
                     {showConfirmPassword ? "👁️" : "👁️‍🗨️ "}
                   </span>
                 </div>
                 <div className="flex">
-                  <p>Select Role:</p> 
+                  <p>Select Role:</p>
                   <div className="align">
-                    <input type="radio" name="role" />&nbsp;
-                    <label htmlFor="user" className="up">user</label>
+                    <input type="radio" name="role" />
+                    &nbsp;
+                    <label htmlFor="user" className="up">
+                      user
+                    </label>
                   </div>
                   <div className="align">
-                    <input type="radio" name="role" />&nbsp;
-                  <label htmlFor="doctor" className="up">doctor</label></div>
+                    <input type="radio" name="role" />
+                    &nbsp;
+                    <label htmlFor="doctor" className="up">
+                      doctor
+                    </label>
+                  </div>
                 </div>
-                {errorMessage && <p style={{ color: "red", marginBottom: 10 }}>{errorMessage} <br /> <a href="">forgotPassword?</a></p>}
-  
+                {errorMessage && (
+                  <p style={{ color: "red", marginBottom: 10 }}>
+                    {errorMessage} <br /> <a href="">forgotPassword?</a>
+                  </p>
+                )}
+
                 <div className="buttonContainer">
-                  <button onClick={() => navigate('/')} className="signup-button">Go Back</button>
-                  <button type="submit" className="signup-button">Get Otp</button>
+                  <button
+                    onClick={() => navigate("/")}
+                    className="signup-button"
+                  >
+                    Go Back
+                  </button>
+                  <button type="submit" className="signup-button">
+                    Get Otp
+                  </button>
                 </div>
                 <div className="buttonContainer">
-                  <p>Already have an account? <span className="pointer" onClick={() => navigate('/login')}>Login</span></p>
+                  <p>
+                    Already have an account?{" "}
+                    <span
+                      className="pointer"
+                      onClick={() => navigate("/login")}
+                    >
+                      Login
+                    </span>
+                  </p>
                 </div>
               </form>
             </>
@@ -192,19 +274,38 @@ const [otp , setOtp]  = useState('')
               <div>&nbsp;</div>
               <form onSubmit={handleVerifyOtp}>
                 <label htmlFor="otp">OTP :</label>
-                <input onInput={(e)=> setOtp(e.target.value)} maxLength={5} type="text"  id="otp" placeholder="Enter your OTP" required  className="inputs"/>
-              <div>&nbsp;</div>
+                <input
+                  onInput={(e) => setOtp(e.target.value)}
+                  maxLength={5}
+                  type="text"
+                  id="otp"
+                  placeholder="Enter your OTP"
+                  required
+                  className="inputs"
+                />
+                <div>&nbsp;</div>
                 <p id="center">The otp will be active for 10 minutes</p>
-              <div>&nbsp;</div>
-              <div id="center">
-                <button className="signup-button" onClick={() => setIsOtpVisible(false)}> &larr;Back</button>
-                <button type="submit" className="signup-button" >Submit</button>
-              </div>
+                <div>&nbsp;</div>
+                <div id="center">
+                  <button
+                    className="signup-button"
+                    onClick={() => setIsOtpVisible(false)}
+                  >
+                    {" "}
+                    &larr;Back
+                  </button>
+                  <button type="submit" className="signup-button">
+                    Submit
+                  </button>
+                </div>
               </form>
               <div>&nbsp;</div>
 
-                <span id="center" className="pointer" onClick={handlePop}>Resend Otp</span>
+              <span id="center" className="pointer" onClick={handlePop}>
+                Resend Otp
+              </span>
 
+              <div>&nbsp;</div>
             </div>
           )}
         </div>
@@ -213,14 +314,19 @@ const [otp , setOtp]  = useState('')
       <div id="footers">
         <ul id="footerlist">
           <li>Privacy Policy</li>
-          <li><a href="">FAQs</a></li>
-          <li><a href="">Terms & Conditions</a></li>
-          <li><a href="">Non-discrimination</a></li>
+          <li>
+            <a href="">FAQs</a>
+          </li>
+          <li>
+            <a href="">Terms & Conditions</a>
+          </li>
+          <li>
+            <a href="">Non-discrimination</a>
+          </li>
         </ul>
       </div>
     </div>
   );
-  
 };
 
 export default Register;

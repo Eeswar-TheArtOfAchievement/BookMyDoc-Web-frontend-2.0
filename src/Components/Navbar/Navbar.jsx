@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import logo from "../../Assets/logo.png";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AgricultureIcon from "@mui/icons-material/Agriculture";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
@@ -18,9 +19,9 @@ const Navbar = ({ cart, setCart }) => {
     <>
     <div id="navbar">
       <div className="navlogo">
-        <AgricultureIcon fontSize="large"></AgricultureIcon>
+      <img className="imglogo" src={logo} alt="Logo" />
         <Link className="li" to="/">
-          Swastik Agro
+          BookMyDoc
         </Link>
       </div>
       <ul className="ulnav">
@@ -55,7 +56,7 @@ const Navbar = ({ cart, setCart }) => {
         <li>
           <div className="rounded">
           <Link className="li" onClick={toggleSideMenu}>
-            <Menu className="icon" ></Menu>
+            <Menu  ></Menu>
           </Link>
           {isLoggedIn ? (
           <Link className="li" to="/register">

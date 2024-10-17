@@ -123,7 +123,7 @@ const Login = () => {
               </div>
             </div>
             {errorMessage && (
-              <p style={{ color: "red", marginBottom: 10 }}>
+              <p style={{ color: "red", marginBottom: 5 }}>
                 {errorMessage} <br /> <a href="">forgotPassword?</a>
               </p>
             )}
@@ -139,13 +139,15 @@ const Login = () => {
             <div>
               <p id="center">Don't have an account? </p>
               &nbsp;
+
               <span
                 id="center"
                 className="pointer"
-                onClick={() => navigate("/signup")}
-              >
+                onClick={() => navigate("/register")}
+                >
                 Signup
               </span>
+                &nbsp;
             </div>
           </form>
         </div>
